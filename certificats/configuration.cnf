@@ -1,0 +1,20 @@
+[req]
+distinguished_name = req_distinguished_name
+x509_extensions = v3_req
+prompt = no
+[req_distinguished_name]
+C = CA
+ST = Quebec
+L = Longueuil
+O = College Edouard-Montpetit
+OU = Techniques d'integration multimedia
+CN = localhost
+[v3_req]
+keyUsage = critical, digitalSignature, keyAgreement
+extendedKeyUsage = serverAuth
+subjectAltName = @alt_names
+[alt_names]
+DNS.1 = localhost
+IP.1 = 192.168.2.31
+DNS.2 = dectim.ca
+DNS.3 = jpcote.dectim.ca
