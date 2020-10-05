@@ -1,0 +1,11 @@
+{
+  "manifest": [
+
+    {"id": "decor",  "src": "ressources/images/fond.jpg"},
+    {"id": "tomate",  "src": "ressources/images/tomate.png"},
+    {"id": "poele",  "src": "ressources/images/poele.png"}
+
+
+
+  ]
+}

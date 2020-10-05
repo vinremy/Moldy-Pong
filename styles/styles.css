@@ -6,20 +6,17 @@ html, body {
   color: white;
   font-size: 16px;
   overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-#cible {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  background-color: red;
-  border-radius: 5px;
-  top: 50%;
-  left: 50%;
-}
-
-pre {
-  font-family: sans-serif;
-  box-sizing: border-box;
-  padding: 10px;
+#fond{
+background-image: url("/ressources/images/fond.jpg");
+  width: 534px;
+  height: 959px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

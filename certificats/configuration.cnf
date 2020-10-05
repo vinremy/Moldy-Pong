@@ -14,7 +14,6 @@ keyUsage = critical, digitalSignature, keyAgreement
 extendedKeyUsage = serverAuth
 subjectAltName = @alt_names
 [alt_names]
-DNS.1 = localhost
+#DNS.1 = localhost
 IP.1 = 192.168.2.31
-DNS.2 = dectim.ca
-DNS.3 = jpcote.dectim.ca
+#DNS.2 = dectim.ca

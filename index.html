@@ -8,17 +8,34 @@
     <title>Serveur</title>
 
     <link rel="stylesheet" href="styles/styles.css">
+    <script src="bibliotheques/createjs.js"></script>
+    <script src="bibliotheques/ndgmr.Collision.js"></script>
 
     <script type="module">
       import {Application} from "./scripts/app.js";
-      new Application();
+
+      window.addEventListener("load", () => {
+          console.log("Prêt!");
+          new Application();
+      });
+
     </script>
+
 
   </head>
 
   <body>
-    <pre id="journal"></pre>
-    <div id="cible"></div>
+
+  <div id="fond">
+
+
+  <canvas  id="canvas" width="434" height="859"></canvas>
+
+  </div>
+
+
+
+    </div>
   </body>
 
 </html>
