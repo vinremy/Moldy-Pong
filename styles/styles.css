@@ -14,8 +14,8 @@ html, body {
 
 #fond{
 background-image: url("/ressources/images/fond.jpg");
-  width: 534px;
-  height: 959px;
+  width: 1920px;
+  height: 1080px;
   display: flex;
   justify-content: center;
   align-items: center;

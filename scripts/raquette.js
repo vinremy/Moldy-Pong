@@ -12,7 +12,7 @@ export class Raquette extends createjs.Bitmap{
         this.direction = undefined;
         this.vitesse = 5;
 
-        this.y = 800
+        this.y = 0
 
 
         // socket.on("mouvement", this.bouge.bind(this));

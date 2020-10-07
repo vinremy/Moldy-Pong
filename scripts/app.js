@@ -57,9 +57,9 @@ export class Application {
 
 
     ajoutDecor(){
-        // this.decor = new createjs.Bitmap(this.chargeur.getResult('decor'), true);
-        //
-        // this.stage.addChild(this.decor);
+        this.decor = new createjs.Bitmap(this.chargeur.getResult('decor'), true);
+
+        this.stage.addChild(this.decor);
 
         console.log("decor ajouté")
 

@@ -35,7 +35,7 @@ export class Serveur {
         let cert = fs.readFileSync(path.resolve() + '/certificats/certificat.pem');
 
         this.serveur = https.createServer(
-            { key: key, cert: cert },
+            {key: key, cert: cert},
             this.app
         );
 
@@ -63,7 +63,6 @@ export class Serveur {
             this.ajouterEcouteurs();
 
         });
-
 
 
     }
@@ -95,15 +94,32 @@ export class Serveur {
     }
 
 
-
     dessiner(e) {
 
 
-   this.raquette.x = e.beta
+        if (e.beta <= -45) {
+
+
+           this.raquette.y = 0
+
+
+        }
+
+        if (e.beta >= 45){
+            this.raquette.y = 760
+        }
 
 
 
+        if (e.beta >= -45 && e.beta <= 45) {
+
+
+            this.raquette.y = (e.beta + 45)/100 * this.canvas.height;
+
+
+        }
+
+       
 
     }
-
 }
