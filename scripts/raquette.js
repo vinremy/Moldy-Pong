@@ -1,8 +1,8 @@
 export class Raquette extends createjs.Bitmap{
 
-    constructor(chargeur){
+    constructor(chargeur, visuel){
 
-        super(chargeur.getResult('poele'));
+        super(chargeur.getResult(visuel));
 
         // this.addEventListener("added", this.initialiser.bind(this));
         window.addEventListener("keydown", this.mouvement.bind(this));
@@ -66,9 +66,9 @@ export class Raquette extends createjs.Bitmap{
             this.x = 0
         }
 
-        else if (this.x >= 334){
-            this.x = 334
-        }
+        // else if (this.x >= 334){
+        //     this.x = 334
+        // }
 
 
 

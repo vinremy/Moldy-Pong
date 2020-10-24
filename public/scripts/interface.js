@@ -25,6 +25,9 @@ export class Interface {
             this.config.serveur.port
         );
 
+        this.socket.on("exit",() => {
+           console.log("Désolé pas de place disponible")
+        });
         //
 
         //document.body.addEventListener("mousemove", this.gererMouvementSouris.bind(this));

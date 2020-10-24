@@ -7,9 +7,13 @@ const path = require('path');
 
 export class Serveur {
 
-    constructor(raquette) {
+    constructor(raquette1, raquette2) {
+        this.joueur1 = null;
+        this.joueur2 = null;
 
-        this.raquette = raquette;
+
+        this.raquette1 = raquette1;
+        this.raquette2 = raquette2;
 
         // Définition de paramètres de configuration pour l'application
         this.config = {
@@ -19,7 +23,7 @@ export class Serveur {
         };
 
         // Tableau des clients connectés
-        this.clients = [];
+       // this.clients = [];
 
         // Canevas pour afficher la position spatiale de l'appareil
         this.canvas = document.querySelector("canvas");
@@ -74,20 +78,46 @@ export class Serveur {
         this.io.on("connection", socket => {
 
             // On garde une référence au client dans un tableau de tous les clients
-            this.clients.push(socket);
+           // this.clients.push(socket);
+            if (this.joueur1 == null){
+                this.joueur1 = socket;
+                socket.on("mouvement", this.dessiner.bind(this));
+                socket.on('disconnect', () => {
+                    console.log(`Déconnexion d'un client / ${this.joueur1!= null} client(s) restant(s)`);
+                    // this.clients = this.clients.filter(item => item !== socket)
+                    this.joueur1 = null
+                });
+
+            }
+
+            else if ((this.joueur2 == null)){
+                this.joueur2 = socket;
+                socket.on("mouvement", this.dessiner2.bind(this));
+                socket.on('disconnect', () => {
+                    console.log(`Déconnexion d'un client / ${this.joueur2!= null} client(s) restant(s)`);
+                    // this.clients = this.clients.filter(item => item !== socket)
+                    this.joueur2 = null
+                });
+            }
+
+            else {
+                socket.emit("exit");
+                socket.disconnect()
+            }
+
+
+
+
 
             // Affichage d'un message dans la console
-            console.log(`Connexion d'un client / ${this.clients.length} client(s) connecté(s)`);
+            console.log(`Connexion d'un client / ${this.joueur1 != null} client(s) connecté(s)`);
 
             // Ajout d'écouteurs sur les événements "position" (tactile) et "mouvement' (device orientation)
 
-            socket.on("mouvement", this.dessiner.bind(this));
+
 
             // Lors d'une déconnexion du client
-            socket.on('disconnect', () => {
-                console.log(`Déconnexion d'un client / ${this.clients.length} client(s) restant(s)`);
-                this.clients = this.clients.filter(item => item !== socket)
-            });
+
 
         });
 
@@ -100,13 +130,13 @@ export class Serveur {
         if (e.beta <= -45) {
 
 
-           this.raquette.y = 0
+           this.raquette1.y = 0
 
 
         }
 
         if (e.beta >= 45){
-            this.raquette.y = 760
+            this.raquette1.y = 760
         }
 
 
@@ -114,12 +144,42 @@ export class Serveur {
         if (e.beta >= -45 && e.beta <= 45) {
 
 
-            this.raquette.y = (e.beta + 45)/100 * this.canvas.height;
+            this.raquette1.y = (e.beta + 45)/100 * this.canvas.height;
 
 
         }
 
        
+
+    }
+
+
+    dessiner2(e) {
+
+
+        if (e.beta <= -45) {
+
+
+            this.raquette2.y = 0
+
+
+        }
+
+        if (e.beta >= 45){
+            this.raquette2.y = 760
+        }
+
+
+
+        if (e.beta >= -45 && e.beta <= 45) {
+
+
+            this.raquette2.y = (e.beta + 45)/100 * this.canvas.height;
+
+
+        }
+
+
 
     }
 }
