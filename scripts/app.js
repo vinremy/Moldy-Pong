@@ -42,7 +42,7 @@ export class Application {
 
     //    commande pour developpement
         window.addEventListener("keydown", this.lancementJeu.bind(this));
-        console.log(this.canvas.width, this.canvas.height)
+        console.log(this.canvas.width, this.canvas.height);
 
         this.pointsJ1 = 0;
         this.pointsJ2 = 0;
@@ -156,6 +156,25 @@ export class Application {
     }
 
 
+
+    augmenterPointJ2(){
+        this.pointsJ2 += 1;
+
+
+        this.pointageJ2.text = this.pointsJ2;
+        this.pointageJ2.updateCache();
+
+
+    }
+
+    augmenterPointJ1(){
+        this.pointsJ1 += 1;
+
+
+        this.pointageJ1.text = this.pointsJ1;
+        this.pointageJ1.updateCache();
+
+    }
 
 }
 
