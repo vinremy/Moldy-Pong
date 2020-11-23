@@ -55,6 +55,10 @@ html, body {
     margin: 115px 0 0 43px;
     transform: rotate(27.44deg);
 }
+.raquetteRouleau{ width: 35%; }
+.raquetteSpatule{ width: 30%;}
+
+#spatule, #rouleau{ display: none;}
 
 h1 {
     font-size: 3rem;
@@ -74,10 +78,16 @@ h1 {
 /* Détails arrière-plan containerRaquette */
 .maskRaquette{
     position: absolute;
-    top: 50px;
 
     transform: rotate(90deg);
     opacity: 0.16;
+}
+
+.maskPoele, .maskSpatule{ top: 50px; }
+.maskSpatule{width: 23%;}
+.maskRouleau{
+    width: 32%;
+    top: 30px;
 }
 
 .ombre{
